@@ -7,10 +7,6 @@
     padding: 10px
     background: $light-gray
 
-.header__logo
-    flex: auto
-    width: 50%
-
 .header__nav-button
     display: flex
     button
@@ -49,23 +45,28 @@
 
 @media (min-width: 750px)
     .header
-        flex: 0 0 auto
-        width: 300px
+        flex: 1 1 auto
+        flex-direction: column
+        max-width: 275px
         height: 100%
 
     .header__nav-button
         display: none
+
     .header__nav
-        width: 50%
         text-align: right
-        font-size: inherit
+        margin-top: 100px
+        // font-size: inherit
+        li:first-of-type
+            border-top: 2px solid white
         li
-            display: inline
+            border-bottom: 2px solid white
         a
             display: inline-block
             padding: 8px 32px
             &:hover
                 background-color: transparent
+    
     .header__nav--open,
     .header__nav--closed
         display: initial
