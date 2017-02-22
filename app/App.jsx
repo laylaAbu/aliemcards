@@ -8,6 +8,7 @@ import WebFont from 'webfontloader';
 
 import lazyLoad from './utils/LazyLoad';
 import Header from './components/Header';
+import Search from './components/Search';
 import Footer from './components/Footer';
 
 import './assets/css/main';
@@ -44,21 +45,24 @@ const FourOhFour = lazyLoad(() =>
 );
 
 const App = props => (
-  <div className="row row--stacked main">
+  <div className="wrapper">
     <Header {...props} />
-    <main className="content" role="main">
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/cards" component={Cards} />
-        <Route path="/cards/:id" component={Card} />
-        <Route exact path="/categories" component={Categories} />
-        <Route path="/categories/:category" component={Category} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route component={FourOhFour} />
-      </Switch>
+    <main className="main" role="main">
+      <Search splashText={props.location.pathname === '/'} />
+      <div className="content">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cards" component={Cards} />
+          <Route path="/cards/:id" component={Card} />
+          <Route exact path="/categories" component={Categories} />
+          <Route path="/categories/:category" component={Category} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route component={FourOhFour} />
+        </Switch>
+      </div>
+      <Footer />
     </main>
-    <Footer />
   </div>
 );
 

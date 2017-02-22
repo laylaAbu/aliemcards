@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../utils/Shims';
-import Search from './Search';
 
 export default class Header extends PureComponent {
 
@@ -55,7 +54,6 @@ export default class Header extends PureComponent {
             </ul>
           </nav>
         </div>
-        <Search splashText={this.props.location.pathname === '/'} />
       </div>
     );
   }
